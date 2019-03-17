@@ -1,40 +1,40 @@
 #include<stdio.h>
 #include<string.h>
-#include "C:\Users\tlfzg\Desktop\Çì´õÆÄÀÏ_¸ğÀ½\ciai03.h"
+#include "C:\Users\tlfzg\Desktop\í—¤ë”íŒŒì¼_ëª¨ìŒ\ciai03.h"
 #pragma warning (disable:4996)
 int main(void)
 {
 	NewUser saved[N];
 	int count = 0;
 	char testPW[N];
-	printf("¾ÆÀÌµğ: ");
+	printf("ì•„ì´ë””: ");
 	scanf("%s", saved[count].ID);
 	while (1)
 	{
-		printf("ºñ¹Ğ¹øÈ£: ");
+		printf("ë¹„ë°€ë²ˆí˜¸: ");
 		scanf("%s", saved[count].PW);
 		if (strlen(saved[count].PW) < 9)
 		{
-			printf("ºñ¹Ğ¹øÈ£´Â 9ÀÚ¸® ÀÌ»ó ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
+			printf("ë¹„ë°€ë²ˆí˜¸ëŠ” 9ìë¦¬ ì´ìƒ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
 		}
 		else
 		{
-			printf("ºñ¹Ğ¹øÈ£ È®ÀÎ: ");
+			printf("ë¹„ë°€ë²ˆí˜¸ í™•ì¸: ");
 			scanf("%s", testPW);
 			if (!strcmp(saved[count].PW, testPW))
 			{
 				getchar();
-				printf("-È¸¿ø°¡ÀÔ ¼º°ø-\n");
+				printf("-íšŒì›ê°€ì… ì„±ê³µ-\n");
 				count++;
-				printf("count Áõ°¡È®ÀÎ=%d", count);
+				printf("count ì¦ê°€í™•ì¸=%d", count);
 				getchar();
 				return 0;
 				//break;
 			}
 			else
-				printf("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù\n\n");
+				printf("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤\n\n");
 		}
 	}
-		printf("È¸¿ø°¡ÀÔ ½ÇÆĞ\n");
+		printf("íšŒì›ê°€ì… ì‹¤íŒ¨\n");
 		return -1;
 	}
