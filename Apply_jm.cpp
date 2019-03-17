@@ -13,28 +13,28 @@ void Apply() {
 
 	while (1) {
 
-		printf("¾ÆÀÌµğ : ");
+		printf("ì•„ì´ë”” : ");
 		scanf("%s", saved[*count].ID);
 
-		printf("ºñ¹Ğ¹øÈ£ : ");
+		printf("ë¹„ë°€ë²ˆí˜¸ : ");
 		scanf("%s", saved[*count].PW);
 
 
 		while (saved[*count].PW[8] != NULL) {
-			printf("ºñ¹Ğ¹øÈ£´Â 9ÀÚ¸® ÀÌ»ó ÀÔ·ÂÇØÁÖ¼¼¿ä.\n\n");
+			printf("ë¹„ë°€ë²ˆí˜¸ëŠ” 9ìë¦¬ ì´ìƒ ì…ë ¥í•´ì£¼ì„¸ìš”.\n\n");
 			break;
 		}
 
 		while (1) {
-			printf("ºñ¹Ğ¹øÈ£ : ");
+			printf("ë¹„ë°€ë²ˆí˜¸ : ");
 			scanf("%s", saved[*count].PW);
 
-			printf("ºñ¹Ğ¹øÈ£ È®ÀÎ : ");
+			printf("ë¹„ë°€ë²ˆí˜¸ í™•ì¸ : ");
 			scanf("%s", saved[*count].testPW);
 
 			if (!strcmp(saved[*count].PW, saved[*count].testPW) == 0)
 			{
-				printf("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.\n\n");
+				printf("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n\n");
 				continue;
 			}
 			else
@@ -42,8 +42,8 @@ void Apply() {
 		}
 		break;
 	}
-					printf("-È¸¿ø°¡ÀÔ ¼º°ø-\n");
-					++*count; //*À» ²À ºÙ¿©¾ß ÇÏ´Â±º,, *++°ú ++*Àº ´Ù¸§..
+					printf("-íšŒì›ê°€ì… ì„±ê³µ-\n");
+					++*count; //*ì„ ê¼­ ë¶™ì—¬ì•¼ í•˜ëŠ”êµ°,, *++ê³¼ ++*ì€ ë‹¤ë¦„..
 
 					printf("count : %d\n", *count);
 
