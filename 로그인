@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+#pragma warning (disable:4996)
+
+typedef struct Saved {
+	char ID[20];
+	char PW[20];
+}Saved;
+
+int Login() {
+	Saved Info;
+	strcpy(Info.ID, "id");
+	strcpy(Info.PW, "123456789");
+	char UserID[20];
+	char UserPW[20];
+	int j, k;
+
+
+	while (1) {
+		printf("아이디:");
+		scanf("%s", UserID);
+		printf("\n");
+		j = strcmp(Info.ID, UserID);
+		if (j == 0) {
+			while (1) {
+				printf("비밀번호:");
+				scanf("%s", UserPW);
+				k = strcmp(Info.PW, UserPW);
+				if (k == 0)
+					break;
+				else {
+					printf("비밀번호 오류");
+					continue;
+				}
+			}
+			break;
+		}
+		else {
+			printf("아이디 오류");
+			continue;
+		}
+	}
+	return 0; //메인으로 리턴 값 반환이라는게 이게 맞나요..??
+}
+
+int main(void)
+{
+	Login();
+	return 0;
+}
