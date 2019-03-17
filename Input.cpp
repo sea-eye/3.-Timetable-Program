@@ -1,13 +1,13 @@
 #include <stdio.h>
 #define N 20;
 #pragma warning (disable:4996)
-// #include"C:\Users\³²½ÃÇö\Desktop\»õ Æú´õ (2)\Çì´õ.h"	// °Ô½ÃÆÇ¿¡ ½áÁø´ë·Î Çß´Âµ¥ ¿À·ù ¶°¼­ ÁÖ¼®Ã³¸® ÇØ³ù½À´Ï´Ù..¤Ğ¤Ğ
+// #include"C:\Users\ë‚¨ì‹œí˜„\Desktop\ìƒˆ í´ë” (2)\ciai03.h"
 
 /*
-	ÃÖÁ¾ Á¦Ãâ Àü
-	Input ÇÔ¼ö·Î ¹Ù²Ü ¶§ 
+	ìµœì¢… ì œì¶œ ì „
+	Input í•¨ìˆ˜ë¡œ ë°”ê¿€ ë•Œ 
 	int Input(TimeTable *info[N])
-	À¸·Î ¹Ù²ã¾ßÇÔ
+	ìœ¼ë¡œ ë°”ê¿”ì•¼í•¨
 */
 
 typedef struct TimeTable {
@@ -33,22 +33,22 @@ int Input(TimeTable info[]) {
 	int count = 0;
 	int *pcount = &count;
 
-	printf("°ú¸ñ¸í: ");
+	printf("ê³¼ëª©ëª…: ");
 	scanf("%s", info[count].SubjectName);
 
-	printf("°ú¸ñ¹øÈ£: ");
+	printf("ê³¼ëª©ë²ˆí˜¸: ");
 	scanf("%s", info[count].SubjectNum);
 
-	printf("±³¼ö¸í: ");
+	printf("êµìˆ˜ëª…: ");
 	scanf("%s", info[count].Prof);
 
-	printf("¿äÀÏ: ");
+	printf("ìš”ì¼: ");
 	scanf("%s", info[count].DayOfWeek);
 
-	printf("±³½Ç¹øÈ£: ");
+	printf("êµì‹¤ë²ˆí˜¸: ");
 	scanf("%s", info[count].RoomNum);
 
-	printf("¼ö¾÷½Ã°£: ");
+	printf("ìˆ˜ì—…ì‹œê°„: ");
 	scanf("%s", info[count].Time);
 
 	(*pcount)++;
