@@ -44,9 +44,7 @@ void RoomNumSearch(TimeTable info[N]) {
 	}
 
 	for (int i = 0; i < N; i++) {
-		/*	if (strcmp(WhatRoom, "e") == 0) {
-				break;
-			}*/
+		
 		if (strcmp(WhatRoom, info[i].RoomNum) == 0) {
 			for (int j = 0, p = 0; j < N, p < N; j++, p++) {
 				printf("%d. %s / ", p + 1, info[j].SubjectName);
@@ -74,6 +72,7 @@ void RoomNumSearch(TimeTable info[N]) {
 			}
 			else {
 				RoomNumSearch(info);
+				break;
 			}
 		}
 
