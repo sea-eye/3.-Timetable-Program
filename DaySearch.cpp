@@ -10,8 +10,8 @@ extern void ProfSearch(TimeTable info[N]);
 extern void RoomNumSearch(TimeTable info[N]);
 extern void BuildingSave(TimeTable info[N], int ok);
 extern void SimpleRoomPrint(TimeTable info[N], int ok);
-extern void SearchList(TimeTable info[N]);
-//¤µ¤².. ¿Ö ¾ÈµÇ¼¼¿ä...
+extern int SearchList(TimeTable info[N]);
+//ã……ã…‚.. ì™œ ì•ˆë˜ì„¸ìš”...
 
 void DaySearch(TimeTable info[N]) {
 	char WhatDay[5] = ""; 
@@ -21,13 +21,13 @@ void DaySearch(TimeTable info[N]) {
 
 	for(j=0 ; j<N; j++ ){
 
-		printf("¿äÀÏ ÀÔ·Â(ex.¼ö) : ");
+		printf("ìš”ì¼ ì…ë ¥(ex.ìˆ˜) : ");
 		scanf("%s", WhatDay);
 		getchar();
 
-		if (!strcmp(WhatDay, "¿ù") == 0 && !strcmp(WhatDay, "È­") == 0 && !strcmp(WhatDay, "¼ö") == 0 && !strcmp(WhatDay, "¸ñ") == 0 && !strcmp(WhatDay, "±İ") == 0 && !strcmp(WhatDay, "Åä") == 0 && !strcmp(WhatDay, "ÀÏ") == 0)
+		if (!strcmp(WhatDay, "ì›”") == 0 && !strcmp(WhatDay, "í™”") == 0 && !strcmp(WhatDay, "ìˆ˜") == 0 && !strcmp(WhatDay, "ëª©") == 0 && !strcmp(WhatDay, "ê¸ˆ") == 0 && !strcmp(WhatDay, "í† ") == 0 && !strcmp(WhatDay, "ì¼") == 0)
 		{
-			printf("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.\n\n");
+			printf("ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì‹­ì‹œì˜¤.\n\n");
 			continue;
 		}
 
@@ -42,10 +42,10 @@ void DaySearch(TimeTable info[N]) {
 
 		}
 
-		printf("Ãß°¡ÀÔ·ÂÇÏ·Á¸é ¾Æ¹«Å°³ª ÀÔ·Â, ³ª°¡·Á¸é e ÀÔ·Â : ");
+		printf("ì¶”ê°€ì…ë ¥í•˜ë ¤ë©´ ì•„ë¬´í‚¤ë‚˜ ì…ë ¥, ë‚˜ê°€ë ¤ë©´ e ì…ë ¥ : ");
 		scanf("%s", ExitDay);
 		if (strcmp(ExitDay, "e") == 0) SearchList(info);
-		printf("<Ãß°¡·Î ÀÔ·ÂÇÕ´Ï´Ù>\n\n");
+		printf("<ì¶”ê°€ë¡œ ì…ë ¥í•©ë‹ˆë‹¤>\n\n");
 	}
 
 }
