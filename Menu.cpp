@@ -4,17 +4,17 @@
 
 extern int main(void);
 extern int Input(TimeTable info[N]);
-extern void SearchList(TimeTable info[N]);
+extern int SearchList(TimeTable info[N]);
 
 int Menu(TimeTable info[N]) {
 
 	int MenuChoice;
 
 	while (1) {
-	printf("1. ½Ã°£Ç¥ ÀúÀå\n");
-	printf("2. ½Ã°£Ç¥ °Ë»ö\n");
-	printf("3. Á¾·á\n");
-	printf("¹øÈ£ ¼±ÅÃ: ");
+	printf("1. ì‹œê°„í‘œ ì €ì¥\n");
+	printf("2. ì‹œê°„í‘œ ê²€ìƒ‰\n");
+	printf("3. ì¢…ë£Œ\n");
+	printf("ë²ˆí˜¸ ì„ íƒ: ");
 
 	scanf("%d", &MenuChoice);
 
@@ -25,7 +25,7 @@ int Menu(TimeTable info[N]) {
 			SearchList(info);
 
 		} else if(MenuChoice == 3) {
-			printf("¸ŞÀÎÀ¸·Î µ¹¾Æ°©´Ï´Ù.\n");
+			printf("ë©”ì¸ìœ¼ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.\n");
 			printf("\n");
 			main();
 		}
