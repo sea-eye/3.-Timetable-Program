@@ -1,57 +1,48 @@
 #include <stdio.h>
-#define N 20;
 #pragma warning (disable:4996)
-// #include"C:\Users\ë‚¨ì‹œí˜„\Desktop\ìƒˆ í´ë” (2)\ciai03.h"
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
 
 /*
-	ìµœì¢… ì œì¶œ ì „
-	Input í•¨ìˆ˜ë¡œ ë°”ê¿€ ë•Œ 
-	int Input(TimeTable *info[N])
-	ìœ¼ë¡œ ë°”ê¿”ì•¼í•¨
+	test °ª
+	³í¸®È¸·Î¼³°è¹×½ÇÇè 2150322701 ÀåÈÆ ¿ùÈ­ 21203 16:30-18:20
+	°´Ã¼ÁöÇâÇÁ·Î±×·¡¹Ö 2150534103 ÃÖÁö¿õ È­±İ 21204 18:00-19:15
+	ÀÚ·á±¸Á¶ 2150533741 ½Å¿ëÅÂ ¿ù¼ö 21201 15:00-16:15
+	ÀÚ·á±¸Á¶ 2160533740 ±èÀÍ¼ö ¿ù¼ö 21201 12:00-13:15
 */
+extern void BuildingSave(TimeTable info[N], int ok);
+int Input(TimeTable info[N]) {
 
-typedef struct TimeTable {
-	char SubjectName[20];
-	char SubjectNum[10];
-	char Prof[10];
-	char DayOfWeek[5];
-	char RoomNum[5];
-	char Time[20];
-} TimeTable;
-
-int Input(TimeTable info[]);
-
-int main() {
-	TimeTable info[20];
-
-	int a;
-	a = Input(info);
-
-}
-
-int Input(TimeTable info[]) {
 	int count = 0;
-	int *pcount = &count;
+	int *pcount;
+	pcount = &count;
 
-	printf("ê³¼ëª©ëª…: ");
-	scanf("%s", info[count].SubjectName);
+	while (1) {
 
-	printf("ê³¼ëª©ë²ˆí˜¸: ");
-	scanf("%s", info[count].SubjectNum);
+		printf("Subject Name: ");
+		scanf("%s", info[*pcount].SubjectName);
 
-	printf("êµìˆ˜ëª…: ");
-	scanf("%s", info[count].Prof);
+		printf("Subject Number: ");
+		scanf("%s", info[*pcount].SubjectNum);
 
-	printf("ìš”ì¼: ");
-	scanf("%s", info[count].DayOfWeek);
+		printf("Professor Name: ");
+		scanf("%s", info[*pcount].Prof);
 
-	printf("êµì‹¤ë²ˆí˜¸: ");
-	scanf("%s", info[count].RoomNum);
+		printf("Day of Week: ");
+		scanf("%s", info[*pcount].DayOfWeek);
 
-	printf("ìˆ˜ì—…ì‹œê°„: ");
-	scanf("%s", info[count].Time);
+		printf("Room Number: ");
+		scanf("%s", info[*pcount].RoomNum);
 
-	(*pcount)++;
+		printf("Lecture Time:(ex.HH:MM-HH:MM) ");
+		scanf("%s", info[*pcount].Time);
 
+		BuildingSave(info, *pcount); //21 Ã³·³ °°Àº °ªÀÌ ÀÖÀ¸¸é ½ÇÇàµÇ¸é ¾È µÊ...
+
+		printf("===========================\n");
+		(*pcount)++;
+		break;
+	}
+
+	//(*pcount)++;
 	return 0;
 }

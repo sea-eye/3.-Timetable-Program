@@ -1,56 +1,43 @@
-#include<stdio.h>
+#include<stdio.h> 
 #include<string.h>
-#include"C:\Users\sewon\Desktop\»õ Æú´õ\ciai03.h"
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
+#pragma warning (disable:4996)
 
-//TimeTable info[N];
-//BuildingPrint(info,i);
-//SimpleRoomPrint(info,i);
-TimeTable info[N] = {
-	  {"ÀÚ·á±¸Á¶","215068620","±èÀÍ¼ö","¼ö","","13:30-14:45"},
-	  {"ÀÚ·á±¸Á¶","215068620","±èÀÍ¼ö","±Ý","","13:30-14:45"},
-	  {"ÇÁ·Î±×·¡¹Ö1","501023160","±èÀÍ¼ö","È­","","10:00-11:50"},
-	  {"ÇÁ·Î±×·¡¹Ö1","501023160","±èÀÍ¼ö","¸ñ","","10:00-11:50"} };
+extern void BuildingSave(TimeTable info[N], int ok);
+extern void SimpleRoomPrint(TimeTable info[N], int ok);
+extern int SearchList(TimeTable info[N]);
 
-void ProfSearch(TimeTable info[N]) {
-	int a, b, i, count = 0;
-	char end, WhoProf[10];
-	for (i = 0; i < N; i++) {
-		printf("±³¼ö¸í ÀÔ·Â:");
-		scanf("%s", &WhoProf);
+ void ProfSearch(TimeTable info[N]) {
+	 int i, j;
+	 char end[5] = "";
+	 char WhoProf[10] = "";
+
+	 for (j = 0; j < N; j++) {
+		 
+		 printf("êµìˆ˜ëª… ìž…ë ¥:");
+		 scanf("%s", WhoProf); //ERROR) subjectnumì´ ë‘ë²ˆ ë‚˜ì˜¤ê³  i+1 ì´ ì¸ë±ìŠ¤ ê¸°ëŠ¥ì„ ì œëŒ€ë¡œ ëª»í•¨
+		 getchar();
+
+		 for (i = 0; i < N; i++) {
+
+			 if (strcmp(WhoProf, "e") == 0) break;
+			 else if (strcmp(WhoProf, info[i].Prof) == 0) {
+				 printf("%d. %s / %s / %s / %s : %s / %s ", i + 1, info[i].SubjectName, info[i].SubjectNum, info[i].Prof, info[i].DayOfWeek, info[i].Time, info[i].UnivBuilding);
+				 SimpleRoomPrint(info, i);
+			 }
+
+		 }
+	if (i == 0) {
+		printf("ìž˜ëª» ìž…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.");
+		}
+		printf("ì¶”ê°€ìž…ë ¥í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ìž…ë ¥, ë‚˜ê°€ë ¤ë©´ e ìž…ë ¥:\n");
+		scanf("%s", end);
 		getchar();
-		for (a = 0; a < N; a++) {
-			for (b = a + 1; b < N + 1; b++) {
-				if (strcmp(WhoProf, info[b - 1].Prof) == 0) {
-					if (strcmp(info[a].SubjectNum, info[b].SubjectNum) == 0) {
-						count++;
-						printf("%d. %s / %s %s %s %s /", count, info[a].SubjectName, info[b - 1].DayOfWeek, info[b - 1].Time, info[b].DayOfWeek, info[b].Time);
-
-						//              BuildingPrint(info,i);
-						//              printf(" / ");
-						//              SimpleRoomPrint(info,i);
-						printf("\n");
-					}
-				}
-				/*else{
-					  printf("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.");
-					  break;}*/
-			}
+		 		if (strcmp(end,"e")!=0) {
+			 			continue;
+			
 		}
-		printf("Ãß°¡ÀÔ·ÂÇÏ·Á¸é ¾Æ¹« Å°³ª ÀÔ·Â(¿µ¹®), ³ª°¡·Á¸é e ÀÔ·Â:\n");
-		scanf("%s", &end);
-		if (end != 'e') {
-			continue;
-		}
-		else {
-			break;
-		}
+				else SearchList(info);
+		
 	}
-
-}
-
-int main(void)
-{
-	ProfSearch(info);
-	getchar();
-	return 0;
 }

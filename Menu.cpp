@@ -1,38 +1,33 @@
 #include <stdio.h>
-#define N 20;
 #pragma warning (disable:4996)
-#include"C:\Users\³²½ÃÇö\Desktop\»õ Æú´õ (2)\ciai03.h"
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
 
-int Menu(TimeTable info[]);
-int Input(TimeTable info[]);
-int SearchList();
+extern int main(void);
+extern int Input(TimeTable info[N]);
+extern int SearchList(TimeTable info[N]);
 
+int Menu(TimeTable info[N]) {
 
-int main() {
-	TimeTable info[20];
-	Menu(info);
-	return 0;
-}
-
-int Menu(TimeTable info[]) {
 	int MenuChoice;
 
-	printf("1. ½Ã°£Ç¥ ÀúÀå\n");
-	printf("2. ½Ã°£Ç¥ °Ë»ö\n");
-	printf("3. Á¾·á\n");
-	printf("¹øÈ£ ¼±ÅÃ: ");
+	while (1) {
+	printf("1. ì‹œê°„í‘œ ì €ì¥\n");
+	printf("2. ì‹œê°„í‘œ ê²€ìƒ‰\n");
+	printf("3. ì¢…ë£Œ\n");
+	printf("ë²ˆí˜¸ ì„ íƒ: ");
 
 	scanf("%d", &MenuChoice);
 
-	while (1) {
 		if (MenuChoice == 1) {
 			Input(info);
+			
 		} else if(MenuChoice == 2) {
-			SearchList();
+			SearchList(info);
+
 		} else if(MenuChoice == 3) {
-			printf("¸ŞÀÎÀ¸·Î µ¹¾Æ°©´Ï´Ù.\n");
+			printf("ë©”ì¸ìœ¼ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.\n");
 			printf("\n");
-			break;
+			main();
 		}
 	}
 
