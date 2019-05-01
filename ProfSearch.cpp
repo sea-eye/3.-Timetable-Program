@@ -5,7 +5,7 @@
 
 extern void BuildingSave(TimeTable info[N], int ok);
 extern void SimpleRoomPrint(TimeTable info[N], int ok);
-extern void SearchList(TimeTable info[N]);
+extern int SearchList(TimeTable info[N]);
 
  void ProfSearch(TimeTable info[N]) {
 	 int i, j;
@@ -14,8 +14,8 @@ extern void SearchList(TimeTable info[N]);
 
 	 for (j = 0; j < N; j++) {
 		 
-		 printf("±³¼ö¸í ÀÔ·Â:");
-		 scanf("%s", WhoProf); //ERROR) subjectnumÀÌ µÎ¹ø ³ª¿À°í i+1 ÀÌ ÀÎµ¦½º ±â´ÉÀ» Á¦´ë·Î ¸øÇÔ
+		 printf("êµìˆ˜ëª… ìž…ë ¥:");
+		 scanf("%s", WhoProf); //ERROR) subjectnumì´ ë‘ë²ˆ ë‚˜ì˜¤ê³  i+1 ì´ ì¸ë±ìŠ¤ ê¸°ëŠ¥ì„ ì œëŒ€ë¡œ ëª»í•¨
 		 getchar();
 
 		 for (i = 0; i < N; i++) {
@@ -28,9 +28,9 @@ extern void SearchList(TimeTable info[N]);
 
 		 }
 	if (i == 0) {
-		printf("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿À.");
+		printf("ìž˜ëª» ìž…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.");
 		}
-		printf("Ãß°¡ÀÔ·ÂÇÏ·Á¸é ¾Æ¹« Å°³ª ÀÔ·Â, ³ª°¡·Á¸é e ÀÔ·Â:\n");
+		printf("ì¶”ê°€ìž…ë ¥í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ìž…ë ¥, ë‚˜ê°€ë ¤ë©´ e ìž…ë ¥:\n");
 		scanf("%s", end);
 		getchar();
 		 		if (strcmp(end,"e")!=0) {
