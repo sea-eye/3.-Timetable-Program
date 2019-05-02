@@ -1,56 +1,44 @@
-#include<stdio.h>
+#include<stdio.h> 
 #include<string.h>
-#include"C:\Users\sewon\Desktop\새 폴더\ciai03.h"
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
+#pragma warning (disable:4996)
 
-//TimeTable info[N];
-//BuildingPrint(info,i);
-//SimpleRoomPrint(info,i);
-TimeTable info[N] = {
-	  {"자료구조","215068620","김익수","수","","13:30-14:45"},
-	  {"자료구조","215068620","김익수","금","","13:30-14:45"},
-	  {"프로그래밍1","501023160","김익수","화","","10:00-11:50"},
-	  {"프로그래밍1","501023160","김익수","목","","10:00-11:50"} };
+extern void BuildingSave(TimeTable info[N], int ok);
+extern void SimpleRoomPrint(TimeTable info[N], int ok);
+extern int SearchList(TimeTable info[N]);
 
-void ProfSearch(TimeTable info[N]) {
-	int a, b, i, count = 0;
-	char end, WhoProf[10];
-	for (i = 0; i < N; i++) {
-		printf("교수명 입력:");
-		scanf("%s", &WhoProf);
-		getchar();
-		for (a = 0; a < N; a++) {
-			for (b = a + 1; b < N + 1; b++) {
-				if (strcmp(WhoProf, info[b - 1].Prof) == 0) {
-					if (strcmp(info[a].SubjectNum, info[b].SubjectNum) == 0) {
-						count++;
-						printf("%d. %s / %s %s %s %s /", count, info[a].SubjectName, info[b - 1].DayOfWeek, info[b - 1].Time, info[b].DayOfWeek, info[b].Time);
+ void ProfSearch(TimeTable info[N]) {
+	
+	 char WhoProf[10] = "";
 
-						//              BuildingPrint(info,i);
-						//              printf(" / ");
-						//              SimpleRoomPrint(info,i);
-						printf("\n");
-					}
-				}
-				/*else{
-					  printf("잘못 입력하셨습니다. 다시 입력하십시오.");
-					  break;}*/
-			}
-		}
-		printf("추가입력하려면 아무 키나 입력(영문), 나가려면 e 입력:\n");
-		scanf("%s", &end);
-		if (end != 'e') {
-			continue;
-		}
-		else {
-			break;
-		}
-	}
+	 int i;
 
-}
+	 int count;
 
-int main(void)
-{
-	ProfSearch(info);
-	getchar();
-	return 0;
+	 while (1) {
+
+		 count = 0;
+
+		 printf("(나가려면 e를 입력하세요)\n");
+		 printf("검색할 교수명 : ");
+		 scanf("%s", WhoProf);
+		 getchar();
+
+		 for (i = 0; i < N; i++) {
+
+			 if (strcmp(WhoProf, "e") == 0) {
+				 SearchList(info);
+			 }
+			 else if (strcmp(WhoProf, info[i].Prof) == 0) {
+
+				 printf("%d. %s / %s / %s / %s : %s / %s ", count + 1, info[i].SubjectName, info[i].SubjectNum, info[i].Prof, info[i].DayOfWeek, info[i].Time, info[i].UnivBuilding);
+				 SimpleRoomPrint(info, i);
+				 count++;
+				
+			 }
+			 else
+				 break;
+
+		 }
+	 }
 }
