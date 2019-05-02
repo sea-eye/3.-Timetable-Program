@@ -2,81 +2,33 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
 
-
-typedef struct TImeTable{
+void BuildingSave(TimeTable info[N], int ok) {  //print ÇÏÁö ¸»°í... Â÷¶ó¸® ÀúÀåÀÌ¶ó°í ÇÏÀÚ...
 	
-	char RoomNum;
-	
-	char BuildingName;
+	//test :: strcpy(info[0].RoomNum, "21302");
+	//info[ok].UnivBuilding¿¡ ÀúÀå
 
-}TimeTable;
+	int Building[N]; //intÇüÀ¸·Î È£¼ö¸¦ º¯°æ¹ŞÀ» º¯¼ö
+	char SSU[N][10] = { "" };
+	int i, j;
 
+	char b_num[2];
 
+	for (i = 0; i < N; i++) {
+		for (j = 0; j < 2; j++)
+		{
+			b_num[j] = info[ok].RoomNum[j];
+		}
+		Building[i] = atoi(b_num); //b_num ¹®ÀÚ¿­À» intÇüÀ¸·Î º¯È¯ÇØ¼­ ÀúÀå
 
-
-char BuildingPrint(TimeTable info, int ok)
-{
-	int ok;
-	(char*) info[ok];
-	int Building; 
-	int BuildingName;
-
-	printf("ê±´ë¬¼ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
-	scanf("%d", &(char*) info[ok].RoomNum);
-	Building = atoi((char*)info[ok].RoomNum);
-
-	printf("ê±´ë¬¼ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
-	scanf("%s", &BuildingName);
-	printf("Building==%d\nBuildingName==%s\n", Building, BuildingName );
-
-	
-}
-
-int main()
-{
-	int Building;
-	TimeTable info;
-	int ok;
-	BuildingPrint (info, ok);
-	
-	switch (Building)//Building:ê±´ë¬¼ë²ˆí˜¸
-				//Caseê°œìˆ˜ê°€ 7ê°œê°€ ìµœëŒ€->ëª¨ë“  ì •ë³´ë¥¼ ë„£ëŠ” ê²ƒì— ì œí•œ
-				//ëŒ€ë¶€ë¶„ì˜ í•™ìƒë“¤ì˜ ì‹œê°„í‘œì— í¬í•¨ëœ 7ê°œì˜ ê±´ë¬¼ë“¤ë¡œ í• ë‹¹
-	{
-	case 02:
-		printf("ê²½ìƒê´€\n");
+		printf("¹øÈ£ %dÀÇ °Ç¹° ÀÌ¸§ ÀÔ·Â : ", Building[i]);
+		scanf("%s", SSU[i]);
 		break;
-	case 03:
-		printf("ë¬¸í™”ê´€\n");
-		break;
+	}
 
-	case 07:
-		printf("ë°±ë§ˆê´€\n");
-		break;
+	strcpy(info[ok].UnivBuilding, SSU[ok]);
 
+	//±¸Á¶Ã¼¿¡ µû·Î ÀúÀåÇØ¼­ ¹ñ±â .. printf("%s", SSU[ok]);
 
-		 case 11:
-			   printf("ì§„ë¦¬ê´€\n");
-			   break;
-
-		   case 12:
-			   printf("ì¡°ë§Œì‹ê¸°ë…ê´€\n");
-			   break;
-
-		   case 20:
-			   printf("ë¯¸ë˜ê´€\n");
-			   break;
-
-		   case 21:
-			   printf("ì •ë³´ê³¼í•™ê´€\n");
-			   break;
-
-		   default:
-			   printf("í•´ë‹¹í•˜ëŠ” ê±´ë¬¼ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤.");
-			   break;
-}
-
-
-	return 0;
 }

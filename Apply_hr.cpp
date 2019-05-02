@@ -1,40 +1,41 @@
 #include<stdio.h>
 #include<string.h>
-#include "C:\Users\tlfzg\Desktop\헤더파일_모음\ciai03.h"
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
 #pragma warning (disable:4996)
-int main(void)
+#pragma warning(disable: 4819)
+int Apply(NewUser saved[N])
 {
-	NewUser saved[N];
+
 	int count = 0;
-	char testPW[N];
-	printf("아이디: ");
+
+	printf("ID : ");
 	scanf("%s", saved[count].ID);
 	while (1)
 	{
-		printf("비밀번호: ");
+		printf("PassWord : ");
 		scanf("%s", saved[count].PW);
 		if (strlen(saved[count].PW) < 9)
 		{
-			printf("비밀번호는 9자리 이상 입력해주세요\n\n");
+			printf("Your password must be over 9 letters!\n\n");
 		}
 		else
 		{
-			printf("비밀번호 확인: ");
-			scanf("%s", testPW);
-			if (!strcmp(saved[count].PW, testPW))
+			printf("PassWord Check: ");
+			scanf("%s", saved[count].testPW);
+			if (!strcmp(saved[count].PW, saved[count].testPW))
 			{
 				getchar();
-				printf("-회원가입 성공-\n");
+				printf("==Success to Apply :)==\n");
 				count++;
-				printf("count 증가확인=%d", count);
+			
 				getchar();
 				return 0;
 				//break;
 			}
 			else
-				printf("비밀번호가 일치하지 않습니다\n\n");
+				printf("WRONG // Check your password\n\n");
 		}
 	}
-		printf("회원가입 실패\n");
+		printf("==Fail to Apply :(==\n");
 		return -1;
 	}
