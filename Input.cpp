@@ -1,57 +1,53 @@
 #include <stdio.h>
-#define N 20;
 #pragma warning (disable:4996)
-// #include"C:\Users\ë‚¨ì‹œí˜„\Desktop\ìƒˆ í´ë” (2)\ciai03.h"
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
 
 /*
-	ìµœì¢… ì œì¶œ ì „
-	Input í•¨ìˆ˜ë¡œ ë°”ê¿€ ë•Œ 
-	int Input(TimeTable *info[N])
-	ìœ¼ë¡œ ë°”ê¿”ì•¼í•¨
+	test °ª
+	³í¸®È¸·Î¼³°è¹×½ÇÇè 2150322701 ÀåÈÆ ¿ùÈ­ 21203 16:30-18:20
+	°´Ã¼ÁöÇâÇÁ·Î±×·¡¹Ö 2150534103 ÃÖÁö¿õ È­±İ 21204 18:00-19:15
+	ÀÚ·á±¸Á¶ 2150533741 ½Å¿ëÅÂ ¿ù¼ö 21201 15:00-16:15
+	ÀÚ·á±¸Á¶ 2160533740 ±èÀÍ¼ö ¿ù¼ö 21201 12:00-13:15
+
+	Á¤º¸°úÇĞ°üÀÌ ²÷ÀÓ ¾øÀÌ ¶ß´Â ¹®Á¦ ÇØ°á
 */
+extern void BuildingSave(TimeTable info[N], int ok);
 
-typedef struct TimeTable {
-	char SubjectName[20];
-	char SubjectNum[10];
-	char Prof[10];
-	char DayOfWeek[5];
-	char RoomNum[5];
-	char Time[20];
-} TimeTable;
+void Input(TimeTable info[N]) {
 
-int Input(TimeTable info[]);
+	static int count = 0;
+	//Input() µÎ ¹ø ºÒ·¶À» ¶§,
+	//info[0].SubjectName
+	//info[1].SubjectName ÀÌ¹Ç·Î static
 
-int main() {
-	TimeTable info[20];
 
-	int a;
-	a = Input(info);
+	while (1) {
 
-}
+		printf("Subject Name: ");
+		scanf("%s", info[count].SubjectName);
 
-int Input(TimeTable info[]) {
-	int count = 0;
-	int *pcount = &count;
+		printf("Subject Number: ");
+		scanf("%s", info[count].SubjectNum);
 
-	printf("ê³¼ëª©ëª…: ");
-	scanf("%s", info[count].SubjectName);
+		printf("Professor Name: ");
+		scanf("%s", info[count].Prof);
 
-	printf("ê³¼ëª©ë²ˆí˜¸: ");
-	scanf("%s", info[count].SubjectNum);
+		printf("Day of Week: ");
+		scanf("%s", info[count].DayOfWeek);
 
-	printf("êµìˆ˜ëª…: ");
-	scanf("%s", info[count].Prof);
+		printf("Room Number: ");
+		scanf("%s", info[count].RoomNum);
 
-	printf("ìš”ì¼: ");
-	scanf("%s", info[count].DayOfWeek);
+		printf("Lecture Time:(ex.HH:MM-HH:MM) ");
+		scanf("%s", info[count].Time);
 
-	printf("êµì‹¤ë²ˆí˜¸: ");
-	scanf("%s", info[count].RoomNum);
+		BuildingSave(info, count); //21 Ã³·³ °°Àº °ªÀÌ ÀÖÀ¸¸é ½ÇÇàµÇ¸é ¾È µÊ...
 
-	printf("ìˆ˜ì—…ì‹œê°„: ");
-	scanf("%s", info[count].Time);
+		printf("===========================\n");
+		count++;
+		break;
+	}
 
-	(*pcount)++;
-
-	return 0;
+	//(*pcount)++;
+	return ;
 }
