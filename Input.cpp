@@ -1,57 +1,58 @@
 #include <stdio.h>
-#define N 20;
 #pragma warning (disable:4996)
-// #include"C:\Users\ë‚¨ì‹œí˜„\Desktop\ìƒˆ í´ë” (2)\ciai03.h"
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
 
 /*
-	ìµœì¢… ì œì¶œ ì „
-	Input í•¨ìˆ˜ë¡œ ë°”ê¿€ ë•Œ 
-	int Input(TimeTable *info[N])
-	ìœ¼ë¡œ ë°”ê¿”ì•¼í•¨
+	test °ª
+	ÀÚ·á±¸Á¶ 2150189902 ±èÀÍ¼ö È­¸ñ 21203 12:00-13:15 Á¤º¸°úÇĞ°ü
+	ÀÚ·á±¸Á¶ 2150189901 ½Å¿ëÅÂ ¿ù¼ö 21201 15:00-16:15 Á¤º¸°úÇĞ°ü
+	ÇÁ·Î±×·¡¹Ö±âÃÊ¹×½Ç½À 2150674203 ±èÀÍ¼ö ¼ö¸ñ 21201 15:00-16:15 Á¤º¸°úÇĞ°ü
+	Á¶Á÷½ÅÈ­ 2150458401 ÀÌ¿ëÁÖ È­¼ö 11516 12:00-13:15 Áø¸®°ü
+	°øÀû½ÅÇĞ¼¼¹Ì³ª 5039992901 ÀÌ¿ëÁÖ ¿ù 22661 15:00-16:15 ¿ş½ºÆ®¹Î½ºÅÍÈ¦
+	---¿Ö ¿ş½ºÆ®¹Î½ºÅÍÈ¦61È£·Î Ãâ·ÂµÇÁö..?
+
+	Building ÇÔ¼ö°¡ Á¦´ë·Î ÃÊ±âÈ­ µÇÁö ¾Ê´Â ¹®Á¦,,
+	Ãß°¡·Î ÀúÀåÇÏ½Ã°Ú½À´Ï±î?
 */
+extern void BuildingSave(TimeTable info[N], int ok);
 
-typedef struct TimeTable {
-	char SubjectName[20];
-	char SubjectNum[10];
-	char Prof[10];
-	char DayOfWeek[5];
-	char RoomNum[5];
-	char Time[20];
-} TimeTable;
+void Input(TimeTable info[N]) {
 
-int Input(TimeTable info[]);
+	static int count = 0;
 
-int main() {
-	TimeTable info[20];
 
-	int a;
-	a = Input(info);
+	while (1) {
 
-}
+		printf("°ú¸ñ¸í : ");
+		scanf("%s", info[count].SubjectName);
+		getchar();
 
-int Input(TimeTable info[]) {
-	int count = 0;
-	int *pcount = &count;
+		printf("°ú¸ñ¹øÈ£ : ");
+		scanf("%s", info[count].SubjectNum);
+		getchar();
 
-	printf("ê³¼ëª©ëª…: ");
-	scanf("%s", info[count].SubjectName);
+		printf("±³¼ö¸í : ");
+		scanf("%s", info[count].Prof);
+		getchar();
 
-	printf("ê³¼ëª©ë²ˆí˜¸: ");
-	scanf("%s", info[count].SubjectNum);
+		printf("¿äÀÏ : ");
+		scanf("%s", info[count].DayOfWeek);
+		getchar();
 
-	printf("êµìˆ˜ëª…: ");
-	scanf("%s", info[count].Prof);
+		printf("±³½Ç¹øÈ£ : ");
+		scanf("%s", info[count].RoomNum);
+		getchar();
 
-	printf("ìš”ì¼: ");
-	scanf("%s", info[count].DayOfWeek);
+		printf("¼ö¾÷ ½Ã°£:(ex.HH:MM-HH:MM) ");
+		scanf("%s", info[count].Time);
+		getchar();
 
-	printf("êµì‹¤ë²ˆí˜¸: ");
-	scanf("%s", info[count].RoomNum);
+		BuildingSave(info, count);
 
-	printf("ìˆ˜ì—…ì‹œê°„: ");
-	scanf("%s", info[count].Time);
+		printf("===========================\n");
+		count++;
+		break;
+	}
 
-	(*pcount)++;
-
-	return 0;
+	return;
 }
