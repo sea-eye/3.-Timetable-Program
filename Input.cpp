@@ -1,57 +1,67 @@
 #include <stdio.h>
-#define N 20;
 #pragma warning (disable:4996)
-// #include"C:\Users\ë‚¨ì‹œí˜„\Desktop\ìƒˆ í´ë” (2)\ciai03.h"
+#include "C:\Users\wjdal\source\repos\ciai_timetable0\ciai_timetable0\ciai03.h"
 
 /*
-	ìµœì¢… ì œì¶œ ì „
-	Input í•¨ìˆ˜ë¡œ ë°”ê¿€ ë•Œ 
-	int Input(TimeTable *info[N])
-	ìœ¼ë¡œ ë°”ê¿”ì•¼í•¨
+	test °ª
+	ÀÚ·á±¸Á¶ 2150189902 ±èÀÍ¼ö È­ ¸ñ 21203 12:00-13:15 Á¤º¸°úÇĞ°ü
+	ÀÚ·á±¸Á¶ 2150189901 ½Å¿ëÅÂ ¿ù ¼ö 21201 15:00-16:15 Á¤º¸°úÇĞ°ü
+	°´Ã¼ÁöÇâÇÁ·Î±×·¡¹Ö 2150674203 ±èÀÍ¼ö ¼ö ¸ñ 21201 15:00-16:15 Á¤º¸°úÇĞ°ü
+	Á¶Á÷½ÅÈ­ 2150458401 ÀÌ¿ëÁÖ È­ ¼ö 11516 12:00-13:15 Áø¸®°ü
+	°øÀû½ÅÇĞ¼¼¹Ì³ª 5039992901 ÀÌ¿ëÁÖ ¿ù ±İ 22661 15:00-16:15 ¿ş½ºÆ®¹Î½ºÅÍÈ¦
+	Áß±¹¾î±âÃÊ 2150155051 °íÀç¿ø È­ ±İ 12402 12:00-13:15 Á¶¸¸½Ä±â³ä°ü
+	
+	//Ã£´Â °ªÀÌ ¾ø½À´Ï´Ù.
+
 */
+extern void BuildingSave(TimeTable info[N], int ok);
+extern int Menu(TimeTable info[N]);
 
-typedef struct TimeTable {
-	char SubjectName[20];
-	char SubjectNum[10];
-	char Prof[10];
-	char DayOfWeek[5];
-	char RoomNum[5];
-	char Time[20];
-} TimeTable;
+void Input(TimeTable info[N]) {
 
-int Input(TimeTable info[]);
+	static int count = 0;
+	char choice[3] = "";
 
-int main() {
-	TimeTable info[20];
+	while (1) {
+		printf("===========================\n");
 
-	int a;
-	a = Input(info);
+		printf("°ú¸ñ¸í : ");
+		scanf("%s", info[count].SubjectName);
+		getchar();
 
-}
+		printf("°ú¸ñ¹øÈ£ : ");
+		scanf("%s", info[count].SubjectNum);
+		getchar();
 
-int Input(TimeTable info[]) {
-	int count = 0;
-	int *pcount = &count;
+		printf("±³¼ö¸í : ");
+		scanf("%s", info[count].Prof);
+		getchar();
 
-	printf("ê³¼ëª©ëª…: ");
-	scanf("%s", info[count].SubjectName);
 
-	printf("ê³¼ëª©ë²ˆí˜¸: ");
-	scanf("%s", info[count].SubjectNum);
+		printf("¿äÀÏ (ex.¿ù ¼ö) : ");
+		scanf("%s %s", info[count].firstDay, info[count].secondDay);
+		sprintf(info[count].DayOfWeek, "%s,%s", info[count].firstDay, info[count].secondDay);
+		getchar();
 
-	printf("êµìˆ˜ëª…: ");
-	scanf("%s", info[count].Prof);
+		printf("±³½Ç¹øÈ£ : ");
+		scanf("%s", info[count].RoomNum);
+		getchar();
 
-	printf("ìš”ì¼: ");
-	scanf("%s", info[count].DayOfWeek);
+		printf("¼ö¾÷ ½Ã°£ (ex.HH:MM-HH:MM) : ");
+		scanf("%s", info[count].Time);
+		getchar();
 
-	printf("êµì‹¤ë²ˆí˜¸: ");
-	scanf("%s", info[count].RoomNum);
+		BuildingSave(info, count);
+		printf("--------------------------\n");
 
-	printf("ìˆ˜ì—…ì‹œê°„: ");
-	scanf("%s", info[count].Time);
+		count++;
 
-	(*pcount)++;
+		printf("Ãß°¡·Î ÀÔ·ÂÇÏ½Ã°Ú½À´Ï±î?(Y/N) : ");
+		scanf("%s", choice);
+		getchar();
 
-	return 0;
+		if(strcmp(choice, "N")==0) Menu(info);
+	}
+
+	return;
 }
